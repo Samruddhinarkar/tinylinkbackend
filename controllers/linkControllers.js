@@ -14,37 +14,6 @@ const generateCode = () => {
     return code;
 };
 
-// CREATE SHORT URL
-// exports.createShortUrl = async (req, res) => {
-//     try {
-//         const { original_url, code } = req.body;
-//         if (!original_url) {
-//             return res.status(400).json({ message: "Original URL is required" });
-//         }
-
-//         let finalCode = code || generateCode();
-
-//         const exists = await Link.findOne({ code: finalCode });
-//         if (exists) {
-//             return res.status(422).json({ message: "Code already exists" });
-//         }
-
-//         const newLink = await Link.create({
-//             code: finalCode,
-//             original_url
-//         });
-
-//         return res.status(201).json({
-//             message: "Short URL created",
-//             short_url: `${req.protocol}://${req.get("host")}/${finalCode}`,
-//             data: newLink
-//         });
-
-//     } catch (error) {
-//         return res.status(500).json({ message: error.message });
-//     }
-// };
-
 // Create Short URL
 exports.createShortUrl = async (req, res) => {
   try {
